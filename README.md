@@ -30,6 +30,7 @@ Open the provided notebook and run cells sequentially.
 
 ### **Files in Repository**
 - `analysis.ipynb` – Full Scanpy pipeline
+- `analysis_report.md` - Full Biological Interpretation of the results
 - `cluster_markers_top10.csv` – Top marker genes per cluster
 - `cluster_proportions.csv` – Proportion of annotated clusters
 - `README.md` – Project overview & instructions
