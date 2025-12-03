@@ -33,6 +33,8 @@ Open the provided notebook and run cells sequentially.
 - `analysis_report.md` - Full Biological Interpretation of the results
 - `cluster_markers_top10.csv` – Top marker genes per cluster
 - `cluster_proportions.csv` – Proportion of annotated clusters
+- `umap_clusters.png` - Visualizes the different cell clusters identified by the Leiden algorithm
+- `umap_celltype_suggested.png` - Displays the final UMAP with the cell types annotated based on marker gene expression
 - `README.md` – Project overview & instructions
 
 ---
