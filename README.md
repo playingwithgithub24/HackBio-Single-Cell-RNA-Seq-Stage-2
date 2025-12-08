@@ -112,11 +112,12 @@ Evidence for peripheral blood:
 ✔ Myeloid monocyte fraction (~10–15%) matches PBMC
 ✔ Absence of neutrophil / granulocyte lineages typical of Ficoll-isolated PBMC samples
 
-# Conclusion:
+ Conclusion:
 
 This is not bone marrow. The proportions match PBMC (peripheral blood).
 
 ## 🦠 7. Is the Patient Healthy or Infected?
+
 Findings:
 
 NK cells elevated → innate antiviral activation
@@ -133,20 +134,20 @@ The immune landscape is mildly shifted toward an antiviral response—consistent
 
 ## 🛠 8. Reproducibility Pipeline
 
-# 1. Install environment
+1. Install environment
 conda env create -f environment.yml
 conda activate scRNA_project
 
-# 2. Run analysis
+2. Run analysis
 python scripts/preprocessing.py
 python scripts/clustering.py
 python scripts/annotation.py
 python scripts/plots.py
 
-# 3. Launch notebook (optional)
+3. Launch notebook (optional)
 jupyter notebook notebook.ipynb
 
-# 4. View results
+4. View results
 results/
 ├── umap_clusters.png
 ├── umap_celltypes.png
