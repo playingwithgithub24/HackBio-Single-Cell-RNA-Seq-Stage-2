@@ -1,169 +1,126 @@
 # Single-Cell Analysis Report
 Dataset: bone_marrow.h5ad
 
-## 1. Identified cell types (annotated clusters)
-- Cluster 0: T cells
-- Cluster 1: NK cells
-- Cluster 2: NK cells
-- Cluster 3: B cells
-- Cluster 4: Monocytes
-- Cluster 5: T cells
-- Cluster 6: Monocytes
-- Cluster 7: NK cells
-- Cluster 8: T cells
-- Cluster 9: NK cells
-- Cluster 10: Erythroid
-- Cluster 11: Plasma cells
-- Cluster 12: T cells
-- Cluster 13: Plasma cells
-- Cluster 14: NK cells
-- Cluster 15: Monocytes
-- Cluster 16: Megakaryocytes/Platelets
-- Cluster 17: NK cells
-- Cluster 18: HSC/Progenitor
+# 1. Identified Cell Types
 
-This is a standard immune + hematopoietic landscape.
+Based on marker gene expression, clustering, and UMAP distribution, the following cell types were identified:
 
-## 2. Biological role of each cell type (short, bone-marrow-specific)
+NK cells
 
-NK cells:
-Innate cytotoxic lymphocytes that kill virally infected or stressed cells. Respond rapidly without needing prior sensitization.
+T cells
 
-T cells:
-Adaptive immunity. Includes CD4⁺ helper cells, CD8⁺ cytotoxic cells, and regulatory T cells. Central to antigen-specific responses.
+Monocytes
 
-Monocytes:
-Precursor phagocytes that give rise to macrophages and dendritic cells. Important for inflammation, pathogen clearance, and antigen presentation.
+B cells
 
-B cells:
-Adaptive immune cells that recognize antigens via the B-cell receptor and can differentiate into antibody-secreting plasma cells.
+Plasma cells
 
-Plasma cells:
-Terminally differentiated B-cell state. Produce large quantities of antibodies, especially during active immune responses.
+Erythroid lineage cells
 
-Erythroid lineage cells:
-Precursors to red blood cells. Their role is to produce hemoglobin-rich RBCs for oxygen transport.
+Megakaryocytes / Platelets
 
-Megakaryocytes / Platelets:
-Megakaryocytes reside in bone marrow and shed platelets into circulation. Platelets contribute to clotting and inflammation.
+HSC / Progenitor cells
 
-HSC / Progenitor cells:
-Primitive stem and progenitor cells that maintain lifelong blood production (myeloid + lymphoid lineages).
+These labels match canonical immune and hematopoietic lineages typically found in bone marrow or peripheral blood.
 
-## 3. Is the tissue source really bone marrow? Reasoning:
-Evidence for bone marrow
+# 2. Biological Roles of Each Cell Type (Concise & Evidence-Driven)
 
-✔ Presence of HSC/progenitors
-Even though low (0.0879%), their presence is still strongly supportive. Peripheral blood very rarely contains true HSCs unless the person is mobilized for apheresis.
+1. NK Cells
 
-✔ Presence of erythroid lineage cells
-Erythropoiesis is bone-marrow–restricted. Mature erythrocytes have no RNA. Therefore, the presence of erythroid precursors indicates marrow, not blood.
+Innate lymphocytes that kill virally infected and malignant cells. Fast responders; rely on cytotoxic granules (GZMB, NKG7).
 
-✔ Presence of megakaryocytes
-Megakaryocytes are large, marrow-resident cells. You normally see only platelets in blood, not megakaryocytes.
+2. T Cells
 
-✔ Broad diversity of hematopoietic lineages
-The mixture of lymphoid, myeloid, and progenitor states is typical of bone marrow.
+Adaptive immune cells responsible for antigen-specific responses. Include CD4⁺ helpers and CD8⁺ cytotoxic subsets.
 
-Evidence against bone marrow
+3. Monocytes
 
-⚠ NK cells (36%) and T cells (32%) are unusually high
-Bone marrow does contain lymphocytes, but not >60% combined.
-Typical adult bone marrow composition:
+Circulating phagocytes that differentiate into macrophages/dendritic cells. Produce inflammatory cytokines during infection.
 
-Myeloid lineage dominance
+4. B Cells
 
-Few mature NK cells
+Adaptive immune cells that recognize antigens, undergo clonal expansion, and differentiate into plasma cells.
 
-T cells generally <10%
+5. Plasma Cells
 
-⚠ HSC proportion is extremely low
-A typical scRNA-seq from marrow usually catches 1–3% progenitors unless the dataset underwent filtering or enrichment.
+Terminal antibody-secreting effectors derived from B cells. Represent humoral immune activation.
+
+6. Erythroid Cells
+
+Precursors and maturing red blood cell lineage. Characterized by hemoglobin genes (HBB, HBA).
+
+7. Megakaryocytes / Platelets
+
+Cells responsible for platelet production and clotting. Platelets mediate wound repair and inflammation.
+
+8. Hematopoietic Stem/Progenitor Cells (HSCs)
+
+Multipotent progenitors capable of generating all blood lineages. Typically rare.
+
+# 3. Is the Tissue Source Really Bone Marrow?
+Evidence For Bone Marrow
+
+Presence of HSC/Progenitors: even though low in proportion, their presence suggests a hematopoietic environment.
+
+Existence of erythroid and megakaryocyte lineages: typically enriched in bone marrow niches.
+
+Diversity of immune lineages: a spectrum of NK, T, B, monocytes is consistent with marrow output.
+
+Evidence Suggesting It Might Not Be Bone Marrow
+
+HSCs are unusually low (~0.08–0.1%), whereas bone marrow usually shows 1–5%.
+
+Neutrophils are absent in your dataset, but bone marrow is typically rich in neutrophil precursors.
+
+Distribution resembles activated peripheral immune cells, not progenitor-rich marrow samples.
 
 Conclusion
 
-This dataset is likely NOT whole bone marrow.
+This dataset is not fully consistent with bone marrow.
+It lacks neutrophils and progenitors and shows elevated NK/T proportions — a profile more typical of peripheral immune tissue or PBMCs, not marrow.
 
-Instead, the profile looks like:
+# 4. Is the Patient Healthy or Infected? Biological Interpretation
 
-➡ Peripheral blood or PBMC-enriched tissue
-with small contamination of marrow-specific populations (erythroid precursors, megakaryocytes, rare HSCs).
+Interpretation is based on deviations from canonical immune frequencies.
 
-Most consistent interpretation:
-This is a PBMC-like sample that retains traces of bone-marrow–specific populations (suggesting either partial marrow sampling, Ficoll leakage, or preprocessing artifacts).
+📌 Key Observed Proportions
 
-## 4. Health assessment (based on abundances)
-Let’s examine the proportions:
+NK cells: 36% (high)
 
-Cell Type	%
-NK cells	36%
-T cells	32%
-Monocytes	13.8%
-B cells	7.3%
-Plasma cells	5.5%
+T cells: 32% (normal–high)
 
-Key diagnostic observations:
+Monocytes: 13% (slightly elevated)
 
-1. NK cell expansion (36%)
+B + Plasma cells: ~12% (normal)
 
-This is unusually high.
-NK cells typically: 5–15% in PBMCs; lower in marrow.
+Erythroid + Megakaryocytes: low but present
 
-NK expansion is seen in:
+HSC/progenitors: very low
 
-Viral infections (EBV, CMV, influenza, SARS-CoV-2)
+# 🔬 Interpretation
 
-Acute inflammation
+High NK cells → often seen during viral infection due to cytotoxic activation.
 
-Cytokine-driven immune activation (IL-15 upregulation)
+Mild monocyte elevation → supports innate immune activation (inflammatory response).
 
-📌 This is the strongest signal of immune activation.
+T cells remain abundant, suggesting adaptive immune activation rather than suppression.
 
-2. T-cell expansion (32%)
-Also high.
+No neutrophil expansion, meaning this is unlikely to be a bacterial infection.
 
-This suggests:
+# Conclusion
 
-Adaptive immune activation
+The immune landscape is most consistent with:
 
-Possible viral response
+📌 A likely viral or antiviral-activated state.
 
-Effector/memory T expansion
+The pattern aligns with:
 
-In bone marrow, T cells usually remain much lower.
+NK expansion
 
-3. Monocytes moderately elevated (13.8%)
+Preserved T cell pool
 
-Normal PBMC monocytes: 5–10%
+Mild innate inflammation
 
-Elevated monocytes indicate:
+No neutrophil burst (rules out bacterial infection)
 
-Systemic inflammation
-
-Early innate immune response
-
-Recruitment/mobilization from marrow
-
-4. Plasma cell elevation (5.5%)
-
-In healthy blood, plasma cells are 0%.
-
-Seeing 5% indicates:
-
-Ongoing antibody response
-
-Strong humoral activation (infection or autoimmune flare)
-
-Final biological call: infection
-
-The combined NK + T + plasma cell expansion indicates an active immune response.
-
-Specifically, the pattern is most consistent with:
-
-➡ Acute viral infection
-(high NK, high T, elevated plasma cells, moderate monocyte rise)
-
-Conclusion
-
-The patient is NOT immunologically normal.
-The immune landscape is consistent with an active infection, most likely viral.
+Not diagnostic alone — but very suggestive.
