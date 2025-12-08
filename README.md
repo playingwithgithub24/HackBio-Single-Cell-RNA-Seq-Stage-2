@@ -199,27 +199,6 @@ The analysis includes:
 
 All figures are generated in Python and embedded directly into the notebook.
 
----
-
-## Project Flowchart
-
-```mermaid
-flowchart TD
-    A[Data Import] --> B[Quality Control]
-    B --> C[Normalization & HVG Selection]
-    C --> D[PCA]
-    D --> E[Neighbor Graph Construction]
-    E --> F[Clustering (Leiden)]
-    F --> G[UMAP Embedding]
-    G --> H[Cluster Annotation]
-    H --> I[Statistical Validation]
-    I --> J[Differential Expression]
-    J --> K[Pathway Enrichment]
-    K --> L[Interpretation & Reporting]
-```
-
----
-
 ## Directory Structure
 
 ```
