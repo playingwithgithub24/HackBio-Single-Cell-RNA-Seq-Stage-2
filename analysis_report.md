@@ -1,7 +1,7 @@
-# Single-Cell Analysis Report
+## Single-Cell Analysis Report
 Dataset: bone_marrow.h5ad
 
-1. Identified Cell Types
+# 1. Identified Cell Types
 
 Based on marker gene expression, clustering, and UMAP distribution, the following cell types were identified:
 
@@ -23,7 +23,7 @@ HSC / Progenitor cells
 
 These labels match canonical immune and hematopoietic lineages typically found in bone marrow or peripheral blood.
 
-2. Biological Roles of Each Cell Type (Concise & Evidence-Driven)
+# 2. Biological Roles of Each Cell Type (Concise & Evidence-Driven)
 
 a. NK Cells
 
@@ -57,8 +57,9 @@ h. Hematopoietic Stem/Progenitor Cells (HSCs)
 
 Multipotent progenitors capable of generating all blood lineages. Typically rare.
 
-3. Is the Tissue Source Really Bone Marrow?
-Evidence For Bone Marrow
+# 3. Is the Tissue Source Really Bone Marrow?
+
+Evidence For Bone Marrow:
 
 Presence of HSC/Progenitors: even though low in proportion, their presence suggests a hematopoietic environment.
 
@@ -66,7 +67,7 @@ Existence of erythroid and megakaryocyte lineages: typically enriched in bone ma
 
 Diversity of immune lineages: a spectrum of NK, T, B, monocytes is consistent with marrow output.
 
-Evidence Suggesting It Might Not Be Bone Marrow
+Evidence Suggesting It Might Not Be Bone Marrow:
 
 HSCs are unusually low (~0.08–0.1%), whereas bone marrow usually shows 1–5%.
 
@@ -79,7 +80,7 @@ Conclusion
 This dataset is not fully consistent with bone marrow.
 It lacks neutrophils and progenitors and shows elevated NK/T proportions — a profile more typical of peripheral immune tissue or PBMCs, not marrow.
 
-4. Is the Patient Healthy or Infected? Biological Interpretation
+# 4. Is the Patient Healthy or Infected? Biological Interpretation
 
 Interpretation is based on deviations from canonical immune frequencies.
 
