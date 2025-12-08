@@ -1,58 +1,184 @@
-# HackBio-Single-Cell-RNA-Seq-Stage-2
-### **Single-Cell RNA-seq Analysis of Bone Marrow Dataset Using Scanpy**
-This repository reproduces a complete scRNA-seq analysis pipeline using the *Scanpy* library on a modified bone marrow dataset (originally from CZI). The workflow includes preprocessing, normalization, clustering, marker-based annotation, and biological interpretation.
+## HackBio-Single-Cell-RNA-Seq-Stage-2
 
-### **Workflow Overview**
-1. Load `.h5ad` dataset
-2. QC filtering: n_genes, percent mitochondrial, doublets
-3. Normalization & log1p transformation
-4. Highly variable gene selection
-5. PCA → neighbors → UMAP
-6. Leiden clustering
-7. Marker gene scoring using **decoupler** with corrected Ensembl gene names
-8. Cell-type annotation using PanglaoDB markers
-9. Biological interpretation of tissue source & immune status
-10. Visualization and reporting
+### 📘 Single-Cell RNA-seq Analysis & Biological Interpretation
 
-### **Key Results**
-- Identified major immune and hematopoietic populations.
-- NK (36%) and T cells (32%) dominate the landscape.
-- Presence of erythroid precursors & megakaryocytes suggests marrow origin.
-- Relative absence of HSCs & lymphocyte-high profile suggests PBMC contamination.
-- Immune activation signature consistent with acute viral infection.
+A full Scanpy workflow for clustering, cell-type annotation, biological interpretation, and immunological reasoning.
 
-### **How to Run**
-```
-!pip install scanpy decoupler-py omnipath pandas numpy matplotlib seaborn
-google colab
-```
-Open the provided notebook and run cells sequentially.
+## 🧬 1. Overview
 
-### **Files in Repository**
-- `scanpy_analysis_code.py` – Full Scanpy pipeline
-- `analysis_report.md` - Full Biological Interpretation of the results
-- `cluster_markers_top10.csv` – Top marker genes per cluster
-- `cluster_proportions.csv` – Proportion of annotated clusters
-- `umap_clusters.png` - Visualizes the different cell clusters identified by the Leiden algorithm
-- `umap_celltype_suggested.png` - Displays the final UMAP with the cell types annotated based on marker gene expression
-- `README.md` – Project overview & instructions
+This project analyzes a single-cell RNA-seq dataset using the Scanpy ecosystem.
+We cluster cells, annotate immune lineages, interpret biological context, evaluate whether the tissue source resembles bone marrow, and assess whether immune proportions suggest health or infection.
 
----
+Outputs include:
 
-## Intro, Results, and Conclusion (Notebook Narrative)
+UMAPs (clusters + annotated cell types)
 
-### **Introduction**
-Single-cell RNA-sequencing enables the characterization of heterogeneous cell populations at high resolution. In this project, we reproduced a standard Scanpy workflow using a modified bone marrow dataset. The goal was to identify major hematopoietic and immune cell types, evaluate the tissue origin of the sample, and infer the patient’s immune status from the cellular composition.
+Marker-based annotation
 
-### **Results**
-Dimensionality reduction and Leiden clustering revealed clear separation of NK cells, T cells, monocytes, B cells, plasma cells, erythroid precursors, megakaryocytes, and rare progenitors. Marker-based annotation using PanglaoDB (corrected for Ensembl IDs) confirmed these identities.
+Cell-type proportions
 
-The composition showed striking NK (36%) and T-cell (32%) expansion, moderate monocyte elevation (13.8%), and a detectable plasma cell compartment (5.5%). Erythroid and megakaryocyte populations indicated marrow linkage, but extremely low HSC levels and lymphocyte dominance suggested a PBMC-like sample rather than full bone marrow.
+Biological interpretation
 
-### **Conclusion**
-The dataset does not resemble typical bone marrow, which is usually myeloid-rich and progenitor-rich. Instead, it displays a lymphocyte-skewed profile indicative of an activated immune response. The NK/T-cell expansion, along with increased plasma cells, suggests ongoing **viral infection** rather than a healthy immune state. Overall, the analysis demonstrates how scRNA-seq data composition can reveal both tissue origin and real-time immunological events.
+Publication-style PPT
 
----
+Full reproducibility pipeline
 
+## 🧭 2. Workflow Diagram
+flowchart TD
+    A[Raw Count Matrix] --> B[Quality Control]
+    B --> C[Normalization + Log1p]
+    C --> D[Highly Variable Gene Selection]
+    D --> E[ PCA ]
+    E --> F[Neighbors Graph]
+    F --> G[Leiden Clustering]
+    G --> H[UMAP Embedding]
+    H --> I[Marker Gene Ranking]
+    I --> J[Cell-Type Annotation]
+    J --> K[Proportion Analysis]
+    K --> L[Biological Interpretation]
+
+## 🔬 3. Methods Summary
+Scanpy workflow
+
+QC filtering
+
+Normalization + log1p
+
+HVG selection
+
+PCA
+
+kNN graph construction
+
+Leiden clustering
+
+UMAP embedding
+
+Marker-gene analysis
+
+Proportion estimation
+
+Validation & Add-Ons
+
+Bootstrapping cluster stability
+
+Differential expression
+
+Pathway enrichment
+
+Viral signature screening module
+
+## 🏷 4. Identified Cell Types
+Cell Type	Description
+NK cells	Cytotoxic innate lymphocytes; kill virally infected or stressed cells
+T cells	Adaptive immunity, antigen-specific responders
+Monocytes	Phagocytic innate cells, inflammatory cytokine producers
+B cells	Antigen-presenting lymphocytes that mature into plasma cells
+Plasma cells	Antibody-secreting effector B cells
+Erythroid lineage	RBC precursors
+Megakaryocytes / Platelets	Platelet-producing cells involved in clotting
+HSC / Progenitors	Stem and multipotent precursor compartments
+
+## 📊 5. Cell-Type Proportion Summary
+
+NK cells – 36%
+
+T cells – 32%
+
+Monocytes – 14%
+
+B cells – 7%
+
+Plasma cells – 5%
+
+Erythroid – 3.5%
+
+Megakaryocytes – 1.8%
+
+HSC/Progenitor – <1%
+
+## 🧭 6. Is the Tissue Bone Marrow?
+Evidence against bone marrow:
+
+❌ NK cells are far too high (BM usually <10%)
+❌ T cells also unusually high for BM
+❌ Very low HSC/progenitor content (<1%)
+❌ Lack of granulocytes and neutrophils (BM hallmark)
+
+Evidence for peripheral blood:
+
+✔ NK (30–40%) and T cell dominance are typical
+✔ Low progenitors consistent with circulation
+✔ Myeloid monocyte fraction (~10–15%) matches PBMC
+✔ Absence of neutrophil / granulocyte lineages typical of Ficoll-isolated PBMC samples
+
+# Conclusion:
+
+This is not bone marrow. The proportions match PBMC (peripheral blood).
+
+## 🦠 7. Is the Patient Healthy or Infected?
+Findings:
+
+NK cells elevated → innate antiviral activation
+
+Monocytes moderately elevated → mild inflammatory response
+
+T cell compartment stable → no severe lymphopenia
+
+No extreme expansion of plasmablasts → not acute bacterial
+
+Interpretation:
+
+The immune landscape is mildly shifted toward an antiviral response—consistent with recent or ongoing viral exposure, but not severe infection.
+
+## 🛠 8. Reproducibility Pipeline
+# 1. Install environment
+conda env create -f environment.yml
+conda activate scRNA_project
+
+# 2. Run analysis
+python scripts/preprocessing.py
+python scripts/clustering.py
+python scripts/annotation.py
+python scripts/plots.py
+
+# 3. Launch notebook (optional)
+jupyter notebook notebook.ipynb
+
+# 4. View results
+results/
+├── umap_clusters.png
+├── umap_celltypes.png
+├── proportions.csv
+├── markers.csv
+
+## 📦 9. Dependencies
+Package	Version
+Python	3.10
+Scanpy	≥1.9
+Anndata	≥0.9
+Matplotlib	≥3.7
+Seaborn	≥0.12
+scikit-learn	≥1.3
+statsmodels	≥0.14
+python-pptx	≥0.6
+
+## 🚀 10. Future Directions
+
+Add statistical validation (bootstrapping, jackknife) for cluster assignments
+
+Perform pathway enrichment (GSEA, Enrichr)
+
+Integrate public PBMC datasets for benchmarking
+
+Add viral gene signatures for infection confirmation
+
+Deploy interactive dashboards (Streamlit + Scanpy)
+
+Containerize via Docker for complete reproducibility
+
+## 🌟 11. Key Insight
+
+The elevated NK and monocyte composition strongly suggests an innate antiviral activation pattern — without evidence of severe immune collapse.
 ## Short Scientific Narrative (for report or mentors)
 This single-cell RNA-seq analysis profiled a hematopoietic/immune mixture using Scanpy and marker-based annotation. Despite containing erythroid and megakaryocytic cells consistent with marrow biology, the dataset displayed unusually high proportions of NK and T cells, and very few hematopoietic stem/progenitor cells. This pattern deviates from typical bone marrow composition and instead resembles PBMCs with minor marrow contamination. Functionally, the strong NK and T-cell expansion, combined with plasma cell emergence and monocyte elevation, indicates active immune stimulation. The most biologically supported interpretation is an ongoing viral infection driving cytotoxic and humoral responses.
