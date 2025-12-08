@@ -25,35 +25,35 @@ These labels match canonical immune and hematopoietic lineages typically found i
 
 2. Biological Roles of Each Cell Type (Concise & Evidence-Driven)
 
-1. NK Cells
+a. NK Cells
 
 Innate lymphocytes that kill virally infected and malignant cells. Fast responders; rely on cytotoxic granules (GZMB, NKG7).
 
-2. T Cells
+b. T Cells
 
 Adaptive immune cells responsible for antigen-specific responses. Include CD4⁺ helpers and CD8⁺ cytotoxic subsets.
 
-3. Monocytes
+c. Monocytes
 
 Circulating phagocytes that differentiate into macrophages/dendritic cells. Produce inflammatory cytokines during infection.
 
-4. B Cells
+d. B Cells
 
 Adaptive immune cells that recognize antigens, undergo clonal expansion, and differentiate into plasma cells.
 
-5. Plasma Cells
+e. Plasma Cells
 
 Terminal antibody-secreting effectors derived from B cells. Represent humoral immune activation.
 
-6. Erythroid Cells
+f. Erythroid Cells
 
 Precursors and maturing red blood cell lineage. Characterized by hemoglobin genes (HBB, HBA).
 
-7. Megakaryocytes / Platelets
+g. Megakaryocytes / Platelets
 
 Cells responsible for platelet production and clotting. Platelets mediate wound repair and inflammation.
 
-8. Hematopoietic Stem/Progenitor Cells (HSCs)
+h. Hematopoietic Stem/Progenitor Cells (HSCs)
 
 Multipotent progenitors capable of generating all blood lineages. Typically rare.
 
