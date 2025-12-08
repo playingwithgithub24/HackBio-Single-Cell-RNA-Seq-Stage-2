@@ -132,6 +132,7 @@ Interpretation:
 The immune landscape is mildly shifted toward an antiviral response—consistent with recent or ongoing viral exposure, but not severe infection.
 
 ## 🛠 8. Reproducibility Pipeline
+
 # 1. Install environment
 conda env create -f environment.yml
 conda activate scRNA_project
@@ -180,5 +181,6 @@ Containerize via Docker for complete reproducibility
 ## 🌟 11. Key Insight
 
 The elevated NK and monocyte composition strongly suggests an innate antiviral activation pattern — without evidence of severe immune collapse.
+
 ## Short Scientific Narrative (for report or mentors)
 This single-cell RNA-seq analysis profiled a hematopoietic/immune mixture using Scanpy and marker-based annotation. Despite containing erythroid and megakaryocytic cells consistent with marrow biology, the dataset displayed unusually high proportions of NK and T cells, and very few hematopoietic stem/progenitor cells. This pattern deviates from typical bone marrow composition and instead resembles PBMCs with minor marrow contamination. Functionally, the strong NK and T-cell expansion, combined with plasma cell emergence and monocyte elevation, indicates active immune stimulation. The most biologically supported interpretation is an ongoing viral infection driving cytotoxic and humoral responses.
