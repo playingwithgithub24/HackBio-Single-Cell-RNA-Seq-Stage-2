@@ -1,4 +1,4 @@
-## Single-Cell Analysis Report
+### Single-Cell Analysis Report
 Dataset: bone_marrow.h5ad
 
 # 1. Identified Cell Types
@@ -84,9 +84,9 @@ It lacks neutrophils and progenitors and shows elevated NK/T proportions — a p
 
 Interpretation is based on deviations from canonical immune frequencies.
 
-📌 Key Observed Proportions
+# 📌 Key Observed Proportions
 
-NK cells: 36% (high)
+NK cells: 34% (high)
 
 T cells: 32% (normal–high)
 
@@ -98,7 +98,7 @@ Erythroid + Megakaryocytes: low but present
 
 HSC/progenitors: very low
 
-🔬 Interpretation
+# 🔬 Interpretation
 
 High NK cells → often seen during viral infection due to cytotoxic activation.
 
@@ -108,7 +108,7 @@ T cells remain abundant, suggesting adaptive immune activation rather than suppr
 
 No neutrophil expansion, meaning this is unlikely to be a bacterial infection.
 
-Conclusion
+# Conclusion
 
 The immune landscape is most consistent with:
 
