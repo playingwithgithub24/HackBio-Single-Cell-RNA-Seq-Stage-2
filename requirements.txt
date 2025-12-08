@@ -1,0 +1,16 @@
+scanpy>=1.10.1
+anndata>=0.10.5
+leidenalg
+python-igraph
+scikit-learn
+matplotlib
+seaborn
+pandas
+numpy
+scipy
+statsmodels
+gseapy
+matplotlib-venn
+adjustText
+session-info
+omnipath
