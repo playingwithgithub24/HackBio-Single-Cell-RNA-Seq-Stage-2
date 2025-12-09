@@ -242,16 +242,18 @@ project/
 All versions should be pinned to ensure reproducibility.
 
 ```
-python==3.10
-scanpy==1.10.1
-anndata==0.10.5
-numpy==1.26.4
-pandas==2.2.1
-matplotlib==3.8.3
-seaborn==0.13.2
-decoupler==1.6.0
-scikit-learn==1.4.2
-gseapy==1.1.3
+| Library | Version |
+|--------|---------|
+| python | 3.10 |
+| scanpy | 1.10.1 |
+| anndata | 0.10.5 |
+| scikit-learn | 1.4 |
+| matplotlib | 3.8 |
+| seaborn | 0.13 |
+| numpy | 1.26 |
+| pandas | 2.2 |
+| gseapy | 1.1.3 |
+
 ```
 
 A ready-to-run Colab environment installer is included in the notebook.
@@ -306,15 +308,6 @@ D --> E[Validation]
 E --> F[DGE + Enrichment]
 F --> G[Reporting]
 ```
-flowchart TD
-    A[Raw Matrix] --> B[QC Filtering]
-    B --> C[Normalization & HVG]
-    C --> D[Batch Correction (optional)]
-    D --> E[Clustering - Leiden]
-    E --> F[Annotation]
-    F --> G[Marker Genes / DEGs]
-    G --> H[Pathway Analysis]
-    F --> I[Cell Proportions]
 ---
 
 ## Future Directions
